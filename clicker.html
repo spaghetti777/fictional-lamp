@@ -8,16 +8,28 @@
     <h1 id="score">BIGBACK POINTS: 0</h1>
 
     <button onclick="addPoint()">CLICK ME</button>
-
+ 
     <script>
-        let bigbackPoints = 0;
+    let bigbackPoints = localStorage.getItem("bigbackPoints");
 
-        function addPoint() {
-            bigbackPoints = bigbackPoints + 1;
-            document.getElementById("score").textContent =
-                "BIGBACK POINTS: " + bigbackPoints;
-        }
-    </script>
+    if (bigbackPoints === null) {
+        bigbackPoints = 0;
+    } else {
+        bigbackPoints = Number(bigbackPoints);
+    }
+
+    document.getElementById("score").textContent =
+        "BIGBACK POINTS: " + bigbackPoints;
+
+    function addPoint() {
+        bigbackPoints = bigbackPoints + 1;
+
+        localStorage.setItem("bigbackPoints", bigbackPoints);
+
+        document.getElementById("score").textContent =
+            "BIGBACK POINTS: " + bigbackPoints;
+    }
+</script>
 
 </body>
 </html>
