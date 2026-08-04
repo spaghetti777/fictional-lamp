@@ -5,9 +5,19 @@
 </head>
 <body>
 
-    <h1>BIGBACK POINTS: 0</h1>
+    <h1 id="score">BIGBACK POINTS: 0</h1>
 
-    <button>CLICK ME</button>
+    <button onclick="addPoint()">CLICK ME</button>
+
+    <script>
+        let bigbackPoints = 0;
+
+        function addPoint() {
+            bigbackPoints = bigbackPoints + 1;
+            document.getElementById("score").textContent =
+                "BIGBACK POINTS: " + bigbackPoints;
+        }
+    </script>
 
 </body>
 </html>
